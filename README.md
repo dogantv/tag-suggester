@@ -12,8 +12,6 @@ This project depends on Elasticsearch with
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
-
  In order to install:
 
     git clone https://github.com/dogantv/tag_suggester.git
