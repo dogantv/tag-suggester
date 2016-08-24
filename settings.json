@@ -1,0 +1,66 @@
+{
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "index_analyzer": {
+                    "tokenizer": "standard",
+                    "filter": [
+                        "apostrophe",
+                        "turkish_stop",
+                        "turkish_stemmer",
+                        "shingle_filter",
+                        "turkish_lowercase"
+                    ],
+                    "char_filter": ["html_strip"]
+                },
+                "search_analyzer": {
+                    "tokenizer": "standard",
+                    "filter": [
+                        "apostrophe",
+                        "turkish_lowercase",
+                        "turkish_stop",
+                        "turkish_stemmer",
+                        "shingle_filter"
+                    ],
+                    "char_filter": []
+                }
+            },
+            "filter": {
+                "turkish_stop": {
+                    "type": "stop",
+                    "stopwords": "_turkish_"
+                },
+                "turkish_lowercase": {
+                    "type": "lowercase",
+                    "language": "turkish"
+                },
+                "ngram": {
+                    "type": "edge_ngram",
+                    "min_gram": 3,
+                    "max_gram": 20
+                },
+                "turkish_stemmer": {
+                    "type": "turkish_stemmer"
+                },
+                "shingle_filter": {
+                    "type": "shingle",
+                    "min_shingle_size": 2,
+                    "max_shingle_size": 3,
+                    "output_unigrams": false
+                }
+            }
+        }
+    },
+    "mappings": {
+        "content": {
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "term_vector": "with_positions_offsets_payloads",
+                    "store": true,
+                    "analyzer": "index_analyzer"
+                }
+            }
+        }
+    }
+}

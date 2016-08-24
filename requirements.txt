@@ -1,0 +1,2 @@
+elasticsearch==2.3.0
+tornado==4.4.1
