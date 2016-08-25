@@ -26,7 +26,7 @@ Then create your Elasticsearch index with settings in `settings.json`
 
 Run `src/run.py`
 
-POST to `http://your-elasticsearch-node/api/suggest`  with header `content-type application/json`
+POST to `http://your-tag-suggester-api-address/api/suggest`  with header `content-type application/json`
 
     {
          "text": "... some long text..."
